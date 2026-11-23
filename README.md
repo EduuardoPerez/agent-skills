@@ -1,0 +1,85 @@
+# Agent Skills
+
+Portable skills for repository changes and coordination across repositories.
+The plugin is designed for independent use of either skill and contains no
+agent-specific adapters.
+
+## Included skills
+
+- **`repo-change-workflow`** coordinates the requested stages of a change in
+  one repository, from implementation and verification through publication
+  when authorized.
+- **`multi-repo-coordination`** maps dependencies and shared interfaces across
+  repositories, sequences related work, and verifies the combined result.
+
+The portable skills are in `plugins/agent-skills/skills/`. The plugin manifest
+and Codex marketplace catalog package them for installation.
+
+## Install in Codex
+
+Add this repository's marketplace at its `main` branch and install the plugin:
+
+```sh
+codex plugin marketplace add EduuardoPerez/agent-skills --ref main
+codex plugin add agent-skills@agent-skills
+```
+
+Start a new Codex conversation to use the installed skills. Refresh the named
+marketplace only when you want to update the plugin:
+
+```sh
+codex plugin marketplace upgrade agent-skills
+```
+
+The refresh is an explicit local action. CI and pre-commit do not run it.
+
+Other agents can use the standard skill directories according to their own
+installation workflow. This repository does not ship host-specific manifests
+or adapters for them.
+
+## Configuration
+
+Each skill can read its own optional TOML profile from the consuming
+repository:
+
+```text
+.agents/skills-config/agent-skills/repo-change-workflow.toml
+.agents/skills-config/agent-skills/multi-repo-coordination.toml
+```
+
+Only save preferences that cannot be inferred from repository instructions,
+configuration, or conventions. Do not repeat settings already present in
+`AGENTS.md`, project configuration, or other repository documentation. If a
+profile is absent, the skill discovers repository conventions and asks only
+when a relevant decision cannot be inferred. Do not combine the two profiles.
+
+Example profiles are in `examples/config/`. They illustrate the available
+preferences and are not user settings. The skill-specific
+`config-options.json` files define those options. To audit a profile after an
+update, run:
+
+```sh
+python plugins/agent-skills/scripts/audit_profile.py repo-change-workflow \
+  --profile .agents/skills-config/agent-skills/repo-change-workflow.toml
+```
+
+The audit reports new options for review without editing the profile. Ask the
+user only when the missing preference affects a choice the repository cannot
+settle. Unknown options and invalid values are reported as errors.
+
+## Validation
+
+Run the package checks from the repository root:
+
+```sh
+python tools/validate_package.py
+python -m unittest discover -s tests -v
+gh skill publish --dry-run .
+```
+
+The GitHub Actions workflow runs these checks. It validates the package and
+skills but does not publish a GitHub release or refresh a Codex marketplace.
+
+## License
+
+This repository is licensed under the MIT License. See `LICENSE`.

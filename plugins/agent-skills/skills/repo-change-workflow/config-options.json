@@ -1,0 +1,10 @@
+{
+  "skill": "repo-change-workflow",
+  "options": {
+    "preferences.summary_detail": {
+      "type": "string",
+      "choices": ["concise", "detailed"],
+      "description": "Preferred level of detail in the completion summary."
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "skill": "multi-repo-coordination",
+  "options": {
+    "preferences.max_parallel_repositories": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4,
+      "description": "Preferred upper bound for concurrently active repositories."
+    }
+  }
+}

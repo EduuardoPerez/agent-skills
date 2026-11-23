@@ -1,0 +1,22 @@
+{
+  "name": "agent-skills",
+  "interface": {
+    "displayName": "EduuardoPerez Agent Skills"
+  },
+  "plugins": [
+    {
+      "name": "agent-skills",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/EduuardoPerez/agent-skills.git",
+        "path": "./plugins/agent-skills",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}
