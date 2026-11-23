@@ -18,7 +18,7 @@ tests, documentation, commit messages, and workflow files.
 
 ## Development
 
-- Use Python 3.11+ standard-library features only for package validation tools.
+- Use Python 3.15+ standard-library features only for package validation tools.
 - Run `python tools/validate_package.py` and
   `python -m unittest discover -s tests -v` before publishing changes.
 - Validate skill metadata with `gh skill publish --dry-run .`; do not publish

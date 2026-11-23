@@ -4,6 +4,12 @@ Portable skills for repository changes and coordination across repositories.
 The plugin is designed for independent use of either skill and contains no
 agent-specific adapters.
 
+## Requirements
+
+Python 3.15 or newer is required for package validation tools. The repository's
+`.python-version` file selects `3.15` with pyenv, which resolves to the newest
+installed 3.15.x patch version.
+
 ## Included skills
 
 - **`repo-change-workflow`** coordinates the requested stages of a change in

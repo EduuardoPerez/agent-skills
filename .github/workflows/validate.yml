@@ -16,7 +16,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version-file: .python-version
+          check-latest: true
       - name: Validate plugin and marketplace package
         run: python tools/validate_package.py
       - name: Test profile auditing and package checks
