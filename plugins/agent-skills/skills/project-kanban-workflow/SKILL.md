@@ -30,9 +30,13 @@ source and installation instructions.
   edit when an existing issue needs another criterion. Check why canceled work
   was abandoned before proposing it again.
 - On a request to create, choose the repository that owns the outcome and
-  create an issue there, then add it to the Project backlog. If that repository
-  is planned, use the agreed temporary repository or a Project draft. Verify
-  both the created item and its Project status. If the second step fails,
+  suggest an assignee and a priority separately. Assign the issue only after
+  the user explicitly accepts the suggested assignee. Create the issue there,
+  then add it to the Project backlog. If that repository is planned, use the
+  agreed temporary repository or a Project draft. A draft has no issue
+  assignee; ask again before assigning anyone when it becomes an issue. Verify
+  the created issue's assignees, when applicable, and the Project item's status
+  separately. Report partial results. If adding an issue to the Project fails,
   resume using the existing issue rather than creating another.
 - Edit titles, descriptions, and acceptance criteria on the issue, and Project
   fields on the Project item. Read before editing and preserve unrelated
@@ -53,6 +57,17 @@ names. Use `repo-change-workflow` for implementation in one repository and
 acceptance criteria are verified and, when delivery requires a pull request,
 its merge is confirmed. Check the final state because Project automations may
 also change it.
+
+When work begins, check the authenticated GitHub account to identify who is
+starting it, unless the user explicitly names someone else. Read the issue's
+current assignees. Keep the assignment if that person is already assigned. If
+not, propose assigning them alongside current assignees for shared work, or
+replacing the current assignees for a handoff. Apply only the option the user
+accepts. If nobody is assigned, propose assigning the person starting the
+work. Acceptance of an assignee when the card was created does not authorize a
+later assignment change. After changes, verify the issue's assignees and the
+Project item's fields and status separately; report any partial result so the
+remaining step can be resumed without duplicating work.
 
 Read the Project's priority options and any documented convention. When asked
 to suggest priorities, explain a small number of useful changes based on
