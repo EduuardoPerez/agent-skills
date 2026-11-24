@@ -2,6 +2,6 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "agent-skills",
   "version": "0.1.0",
-  "description": "Portable skills for repository and multi-repository workflows",
+  "description": "Portable skills for repository changes, multi-repository coordination, and project Kanban workflows",
   "license": "MIT"
 }

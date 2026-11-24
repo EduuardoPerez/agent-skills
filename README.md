@@ -1,8 +1,8 @@
 # Agent Skills
 
-Portable skills for repository changes and coordination across repositories.
-The plugin is designed for independent use of either skill and contains no
-agent-specific adapters.
+Portable skills for repository changes, coordination across repositories, and
+Kanban project work. The plugin is designed for independent use of each skill
+and contains no agent-specific adapters.
 
 ## Requirements
 
@@ -17,6 +17,8 @@ installed 3.15.x patch version.
   when authorized.
 - **`multi-repo-coordination`** maps dependencies and shared interfaces across
   repositories, sequences related work, and verifies the combined result.
+- **`project-kanban-workflow`** manages GitHub Project work from task discovery
+  through creation, editing, prioritization, delivery, and cancellation.
 
 The portable skills are in `plugins/agent-skills/skills/`. The plugin manifest
 and Codex marketplace catalog package them for installation.
@@ -51,13 +53,18 @@ repository:
 ```text
 .agents/skills-config/agent-skills/repo-change-workflow.toml
 .agents/skills-config/agent-skills/multi-repo-coordination.toml
+.agents/skills-config/agent-skills/project-kanban-workflow.toml
 ```
 
-Only save preferences that cannot be inferred from repository instructions,
-configuration, or conventions. Do not repeat settings already present in
-`AGENTS.md`, project configuration, or other repository documentation. If a
-profile is absent, the skill discovers repository conventions and asks only
-when a relevant decision cannot be inferred. Do not combine the two profiles.
+Commit profiles that contain shared project context, such as a Project URL or
+a path from the profile directory to a repository map. Keep a new map in a
+skill-specific subdirectory beside its profile. A profile can include a comment
+linking to this repository's installation instructions for new collaborators.
+Keep private data and machine-specific paths out of committed profiles. Only
+save preferences that cannot be inferred from repository instructions,
+configuration, or conventions. If a profile is absent, the skill discovers
+repository conventions and asks only when a relevant decision cannot be
+inferred. Keep the three profiles separate.
 
 Example profiles are in `examples/config/`. They illustrate the available
 preferences and are not user settings. The skill-specific
