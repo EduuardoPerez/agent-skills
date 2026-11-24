@@ -1,0 +1,9 @@
+{
+  "skill": "project-kanban-workflow",
+  "options": {
+    "project.url": {
+      "type": "string",
+      "description": "Canonical URL of the GitHub Project associated with this repository."
+    }
+  }
+}

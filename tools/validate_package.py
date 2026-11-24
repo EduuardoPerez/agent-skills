@@ -16,7 +16,11 @@ sys.path.insert(
 from audit_profile import audit_profile  # noqa: E402
 
 
-EXPECTED_SKILLS = {"repo-change-workflow", "multi-repo-coordination"}
+EXPECTED_SKILLS = {
+    "repo-change-workflow",
+    "multi-repo-coordination",
+    "project-kanban-workflow",
+}
 PLUGIN_SCHEMA = "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json"
 MARKETPLACE_URL = "https://github.com/EduuardoPerez/agent-skills.git"
 

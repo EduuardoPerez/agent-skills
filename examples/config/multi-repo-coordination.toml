@@ -1,2 +1,7 @@
+# Skill source and installation: https://github.com/EduuardoPerez/agent-skills#install-in-codex
+
 [preferences]
 max_parallel_repositories = 2
+
+[context]
+map_path = "multi-repo-coordination/repository-map.md"
