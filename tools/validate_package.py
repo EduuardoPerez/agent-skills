@@ -21,6 +21,7 @@ EXPECTED_SKILLS = {
     "multi-repo-coordination",
     "project-kanban-workflow",
 }
+MAX_SKILL_PROMPT_BYTES = 8_000
 PLUGIN_SCHEMA = "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json"
 MARKETPLACE_URL = "https://github.com/EduuardoPerez/agent-skills.git"
 
@@ -138,6 +139,19 @@ def _frontmatter(path: Path, errors: list[str]) -> dict[str, str]:
     return fields
 
 
+def _check_skill_prompt_size(path: Path, errors: list[str]) -> None:
+    try:
+        size = path.stat().st_size
+    except OSError as error:
+        errors.append(f"Cannot measure {path}: {error}")
+        return
+    if size > MAX_SKILL_PROMPT_BYTES:
+        errors.append(
+            f"{path} is {size} bytes; maximum SKILL.md size is "
+            f"{MAX_SKILL_PROMPT_BYTES} UTF-8 bytes"
+        )
+
+
 def _check_skills(root: Path, errors: list[str]) -> None:
     skills_root = root / "plugins/agent-skills/skills"
     found = (
@@ -153,6 +167,9 @@ def _check_skills(root: Path, errors: list[str]) -> None:
         errors.append(
             f"Expected skills {sorted(EXPECTED_SKILLS)}, found {sorted(found)}"
         )
+
+    for name in sorted(found):
+        _check_skill_prompt_size(skills_root / name / "SKILL.md", errors)
 
     for name in sorted(EXPECTED_SKILLS):
         skill_root = skills_root / name

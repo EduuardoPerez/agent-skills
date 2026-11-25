@@ -39,7 +39,10 @@ profile's keys are in `config-options.json`; validate it with
   changes, review directly affected cards and revise dependent actions,
   decisions, or acceptance checks in the same update.
 
-Before creating or substantially editing a card, read
+When turning a plan or conversation into multiple deliverables, read
+[dependencies and related cards](references/dependencies.md) to identify
+which outcomes depend on others. Before creating or substantially editing a
+card, read
 [handoffs](references/handoffs.md) to make it actionable. Read
 [dependencies and related cards](references/dependencies.md) before linking or
 changing dependencies. At completion or for a cross-card finding, reread
