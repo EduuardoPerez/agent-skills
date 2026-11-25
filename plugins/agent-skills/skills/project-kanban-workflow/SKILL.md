@@ -1,6 +1,6 @@
 ---
 name: project-kanban-workflow
-description: Manage a small project's Kanban work, including suggesting, creating, editing, prioritizing, progressing, and canceling GitHub Project items.
+description: Use when managing GitHub Project items, turning a plan or conversation into related cards, choosing what to work on, or handing findings to the next contributor.
 license: MIT
 ---
 
@@ -41,7 +41,63 @@ source and installation instructions.
 - Edit titles, descriptions, and acceptance criteria on the issue, and Project
   fields on the Project item. Read before editing and preserve unrelated
   content. Verify the result. Follow the repository's language and privacy
-  conventions for public text.
+  conventions for public text. When an edit changes a deliverable, dependency,
+  or finding, review directly affected cards in the same update and revise any
+  action, decision, or acceptance criterion that depends on the change.
+
+### Connect cards from a plan or conversation
+
+For each distinct deliverable, identify which other cards need its result and
+what they can do before it arrives. List order alone establishes no dependency.
+Match deliverables to existing items first. After authorized creation, use the
+actual issue or draft links. Only link items visible to the intended audience.
+
+- When an outstanding prerequisite prevents starting or finishing, record a
+  native GitHub issue dependency where supported. Name the required result and
+  the milestone it gates on the consuming card. If an endpoint is a draft or the
+  dependency cannot be set, describe the prerequisite on the card and report the
+  limitation.
+- When a finding informs a decision or two teams can work in parallel, add a
+  contextual reference only if it explains an action or coordination need.
+  Independent work needs no link.
+
+### Hand work to the next session
+
+Write the card so a new contributor can identify the outcome, take the first
+step, and check completion. Include the decisions, constraints, and open
+questions that affect those actions. A short card may need only a few sentences.
+
+At completion, record the outcome, the checks actually performed, and the limits
+of the evidence. Identify direct consumers by link when safe. Read each affected
+card and integrate the smallest useful finding beside the action, decision or
+acceptance check it changes. Link back to its source and summarize enough to
+start from that card alone. On retries, reread the cards and their relationships,
+apply only missing edits, then verify both ends. Report any unfinished update.
+
+For example, in a synthetic build project, #40 defines an archive format and
+#41 builds its reader. The reader can start against a draft, but accepting it
+requires the approved format from #40. Record that dependency on #41. When #40
+closes, its handoff to #41 can say that an empty archive is valid and was tested.
+On #41, link #40 and add a reader check for an empty archive. This finding can
+be used immediately. An independent typography review needs no update.
+
+### Use private evidence
+
+Publish only conclusions, their scope, and the type of evidence needed to
+resolve an open question. Check the text and every reference for sensitive
+details such as names, identifiers, sample data, internal URLs, or local paths
+before posting.
+
+Use a private handoff index supplied for the session or configured through
+`context.handoff_index_path` (relative to the profile directory). Look up the
+card by its qualified issue reference or stable item URL. Each entry points to
+the local artifact or section and says which question it answers and where its
+evidence ends. Reuse entries when updating the index. Before writing it in a
+repository, verify the file is both Git-ignored and untracked. A shared
+profile may name a generic relative index path. Supply sensitive locations
+privately and keep them out of public cards. If the index or artifact is
+unavailable, start with the public summary and ask privately for the specific
+evidence only when an open decision requires it.
 
 ## Choose and progress work
 
@@ -49,14 +105,14 @@ Review work in progress and in review before recommending another task.
 Recommend a ready item based on the current goal, urgency, dependencies, and
 work it unlocks. Keep one active item as a useful default, while respecting
 the user's choice to switch. Move an item to Ready when its outcome and
-acceptance criteria are clear and required dependencies are available. Move it
-to In progress when work begins, and In review when a deliverable is ready to
-assess. Confirm the actual Project's status options rather than assuming these
-names. Use `repo-change-workflow` for implementation in one repository and
-`multi-repo-coordination` when several are involved. Mark Done only after the
-acceptance criteria are verified and, when delivery requires a pull request,
-its merge is confirmed. Check the final state because Project automations may
-also change it.
+acceptance criteria are clear and the prerequisites for starting are available.
+Move it to In progress when work begins, and In review when a deliverable is
+ready to assess. Confirm the actual Project's status options rather than
+assuming these names. Use `repo-change-workflow` for implementation in one
+repository and `multi-repo-coordination` when several are involved. Mark Done
+only after the acceptance criteria are verified and, when delivery requires a
+pull request, its merge is confirmed. Check the final state because Project
+automations may also change it.
 
 When work begins, check the authenticated GitHub account to identify who is
 starting it, unless the user explicitly names someone else. Read the issue's

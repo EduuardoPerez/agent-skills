@@ -18,7 +18,8 @@ installed 3.15.x patch version.
 - **`multi-repo-coordination`** maps dependencies and shared interfaces across
   repositories, sequences related work, and verifies the combined result.
 - **`project-kanban-workflow`** manages GitHub Project work from task discovery
-  through creation, editing, prioritization, delivery, and cancellation.
+  through creation, prioritization, delivery, and cancellation. It links related
+  cards and carries verified findings into the next task.
 
 The portable skills are in `plugins/agent-skills/skills/`. The plugin manifest
 and Codex marketplace catalog package them for installation.
