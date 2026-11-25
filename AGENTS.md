@@ -14,6 +14,9 @@ tests, documentation, commit messages, and workflow files.
   paths, real spreadsheet links, credentials, or financial results.
 - Keep repository-change and multi-repository coordination as independent
   skills with independent optional TOML profiles.
+- Keep each packaged `SKILL.md`, including frontmatter, within 8,000 UTF-8
+  bytes so Codex can include it without truncation. Keep the triggers for
+  reading supporting references in the main skill.
 - Never make a marketplace refresh part of CI or a pre-commit hook.
 
 ## Development
