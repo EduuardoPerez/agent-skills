@@ -4,6 +4,10 @@
     "project.url": {
       "type": "string",
       "description": "Canonical URL of the GitHub Project associated with this repository."
+    },
+    "context.handoff_index_path": {
+      "type": "string",
+      "description": "Path from the profile directory to an optional private index of evidence by card."
     }
   }
 }

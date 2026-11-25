@@ -2,3 +2,7 @@
 
 [project]
 url = "https://github.com/users/example/projects/1"
+
+[context]
+# The consuming repository ignores this local index.
+handoff_index_path = "private/handoffs.md"
