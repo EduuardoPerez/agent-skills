@@ -18,8 +18,10 @@ comment linking to this skill's source and installation instructions. The
 profile's keys are in `config-options.json`; validate it with
 `scripts/audit_profile.py` when needed. Fetch live Project options and items.
 
-Before recommending, prioritizing, creating, or substantially changing work,
-check repository instructions and relevant project plans or briefs. Read
+For an informational request, report findings and pending actions without
+editing issues or Project items. Before recommending, prioritizing, creating,
+or substantially changing work, check repository instructions and relevant
+project plans or briefs. Read
 `context.project_context_path` first when configured; resolve it relative to
 the profile directory. Otherwise use a targeted search for relevant shared or
 local plans, including ignored local notes when available. Compare their goals,
@@ -65,13 +67,14 @@ repository's language and privacy conventions to public text.
 Review work in progress and in review before recommending another task. Choose
 a ready item based on the current goal, urgency, prerequisites, and work it
 unlocks; one active item is a useful default, but respect a switch. Move an
-item to Ready when its outcome, acceptance checks, and starting prerequisites
-are clear; to In progress when work begins; and to In review when its
-deliverable is ready to assess. **Use the actual Project's status options.**
+item to Ready when its outcome and acceptance checks are clear and its
+starting prerequisites are met. Move it to In progress when work begins and
+to In review when its deliverable is ready to assess.
+**Use the actual Project's status options.**
 Use `repo-change-workflow` for implementation in one repository and
-`multi-repo-coordination` for several. Mark Done only when acceptance checks
-are verified and any required pull request is merged. Check final status
-because Project automation may change it.
+`multi-repo-coordination` for several. At the start of a card, identify the
+deliverable, its acceptance criteria, and the evidence needed to verify each
+criterion at closure.
 
 When work begins, identify the authenticated starter unless the user names
 someone else, and read current issue assignees. Keep the assignment if the
@@ -86,6 +89,27 @@ changes based on urgency, the next deliverable, and dependencies. Set and
 verify the field only when asked. Leave other items unclassified if sufficient.
 If no priority field exists, recommend an order in conversation; create a field
 only on explicit request.
+
+## Verify completion and hand off work
+
+When a pull request merges or you resume the board, compare the delivered
+work with each acceptance criterion. Keep a review-ready card in review while
+its required pull request is open. For work without a pull request, inspect
+the agreed evidence. If any criterion is unmet or unverified, record what
+remains and the evidence still needed. If automation closed unfinished work,
+report the discrepancy and restore the appropriate issue and Project states
+when authorized.
+
+Once all criteria are verified and any required pull request has merged,
+read the issue state (if there is an issue) and the Project status. Within
+the authorized update, close an open issue as completed, then reread the
+Project item and set it to Done if needed. Verify both states.
+
+Apply the [handoff guidance](references/handoffs.md) even if GitHub already
+closed the issue and marked the item Done. Update directly affected cards
+with missing findings. Before moving the next card to Ready, verify its
+remaining starting prerequisites. On retry, reread the cards and apply only
+outstanding updates.
 
 ## Public and private evidence
 
