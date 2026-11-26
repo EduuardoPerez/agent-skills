@@ -18,6 +18,17 @@ comment linking to this skill's source and installation instructions. The
 profile's keys are in `config-options.json`; validate it with
 `scripts/audit_profile.py` when needed. Fetch live Project options and items.
 
+Before recommending, prioritizing, creating, or substantially changing work,
+check repository instructions and relevant project plans or briefs. Read
+`context.project_context_path` first when configured; resolve it relative to
+the profile directory. Otherwise use a targeted search for relevant shared or
+local plans, including ignored local notes when available. Compare their goals,
+decisions, dates, and remaining work with live Project items and completed
+deliverables. Treat an older plan as context, not current status. If a
+configured document is missing or inaccessible, say so and continue from
+available evidence. Do not expose private document paths or contents in public
+Project text.
+
 ## Find and shape work
 
 - Read the relevant Project items and repository issues. Fetch only a known
