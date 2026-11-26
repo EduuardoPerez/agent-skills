@@ -4,5 +4,7 @@
 url = "https://github.com/users/example/projects/1"
 
 [context]
+# Optional project plan or brief, relative to this profile directory.
+project_context_path = "private/project-plan.md"
 # The consuming repository ignores this local index.
 handoff_index_path = "private/handoffs.md"

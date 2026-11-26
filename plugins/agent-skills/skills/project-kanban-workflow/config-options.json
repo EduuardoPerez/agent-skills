@@ -5,6 +5,10 @@
       "type": "string",
       "description": "Canonical URL of the GitHub Project associated with this repository."
     },
+    "context.project_context_path": {
+      "type": "string",
+      "description": "Path from the profile directory to a relevant project plan or brief; the document may be private and Git-ignored."
+    },
     "context.handoff_index_path": {
       "type": "string",
       "description": "Path from the profile directory to an optional private index of evidence by card."
