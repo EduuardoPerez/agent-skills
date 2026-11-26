@@ -15,7 +15,9 @@ the workflow.
 1. Read the repository instructions, Git status and branch, CI workflow,
    pre-commit configuration, and relevant project commands.
 2. Preserve uncommitted user changes and keep the change focused.
-3. Select only the stages required by the requested outcome:
+3. When integration requires review, explicitly include opening or updating a
+   pull request in the plan. If publication is pending authorization, mark that
+   step as pending. Select the stages required by the requested outcome:
    - **Branch:** create or use a task branch when requested, required by the
      repository, or needed for an agreed commit or pull request. Do not disrupt
      uncommitted work.
